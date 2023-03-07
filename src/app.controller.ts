@@ -9,6 +9,9 @@ export class AppController {
   @Post('hashtag')
   async postHashtag(@Body() keywordData: KeywordData): Promise<any> {
     const keyword = keywordData.keyword;
-    return await this.appService.chatgpt(keyword);
+
+    const gptResult = await this.appService.chatgpt(keyword);
+
+    return gptResult;
   }
 }
